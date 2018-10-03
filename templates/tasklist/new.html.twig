@@ -1,0 +1,19 @@
+{% extends 'layouts/site.html.twig' %}
+
+{% block title %}{{ 'app.title'|trans }}{% endblock %}
+
+{% block content %}
+
+    <div class="row">
+
+        <h4>{{ 'entity.Task.new'|trans }}</h4>
+        <div class="panel panel-default">
+
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            {{ form_end(form) }}
+
+        </div>
+    </div>
+
+{% endblock %}

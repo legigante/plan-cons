@@ -1,0 +1,487 @@
+// variables bootstrap
+
+// couleurs
+
+$c_black: #292929;
+$c_blue: #6678cc;
+$c_green: #5bcc36;
+$c_grey: #b9b9b9;
+$c_orange_bg: #e75113;;
+$c_orange_font: #d0511d;
+$c_red: #cc2323;
+$c_white: #fff;
+$c-yellow: #dac338;
+
+// menu
+$navbar-inverse-bg: $c_orange_bg;
+$navbar-inverse-color: $c_white;
+$navbar-inverse-link-color: $c_white;
+$navbar-inverse-brand-color: $c_white;
+$navbar-inverse-link-hover-color: $c_black;
+$navbar-inverse-border: none;
+
+
+// body
+$text-color: $c_orange_font;
+
+
+
+// chemin fonts
+$icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
+$fa-font-path: "~font-awesome/fonts";
+
+// imports
+@import '~bootstrap-sass/assets/stylesheets/bootstrap';
+@import "~font-awesome/scss/font-awesome.scss";
+@import "~flatpickr/dist/flatpickr.css";
+
+
+
+
+
+
+
+
+
+
+
+
+
+body,html{
+  height: 100%;
+}
+.c-black{color: $c_black;}
+.c-blue{color: $c_blue;}
+.c-green{color: $c_green;}
+.c-grey{color: $c_grey;}
+.c-orange{color: $c_orange_font;}
+.c-red{color: $c_red;}
+.c-white{color: $c_white;}
+.c-yellow{color: $c-yellow;}
+
+a.anone{
+  color: $c_orange_font;
+}
+a.anone:hover{
+  color: $c_orange_font;
+}
+
+#mpCache{
+  z-index: 99999;
+  display: none;
+  background-color: rgba(0,0,0,0.5);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  cursor: progress;
+}
+#mpLoading{
+  z-index: 999999;
+  display: none;
+  cursor: progress;
+}
+#mpLoading img{
+  width: 100px;
+  position: fixed;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 300px;
+}
+.loading{
+  min-height: 200px;
+  text-align: center;
+}
+.loading img{
+  width: 100px;
+  margin: auto;
+}
+#mpPopup{
+  z-index: 999999;
+  display: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 300px;
+}
+#mpFlash{
+  display: none;
+  text-align: center;
+  z-index: 999999;
+  position: fixed;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 70px;
+}
+
+
+
+header{
+  min-height: 50px;
+  margin-bottom: 25px;
+}
+
+nav{
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 99999;
+}
+nav .container-fluid{
+  border-bottom: 1px solid white !important;
+}
+nav .navbar-toggle{
+  margin: 0;
+  line-height: 0;
+  font-size: 210%;
+}
+/*
+nav .navbar-toggle:hover{
+  color: white;
+  border-color: white;
+}
+.navbar-header,
+.navbar-brand{
+  color: white!important;
+}*/
+
+#flags a{
+  text-align: center;
+}
+#flags img{
+  height: 20px;
+}
+#flags{
+  min-width: 102px;
+}
+
+
+
+/* menu ordi */
+@media (min-width: 768px) {
+  #menuProfile > a{
+    margin-right: -15px;
+  }
+}
+
+/* menu smartphone */
+@media (max-width: 768px) {
+  #flags li{
+    display: inline-block;
+    margin-left: 15px;
+  }
+  #flags li,
+  #flags li > a{
+    padding: 5px;
+  }
+
+  #flags li > a:hover{
+    background-color: #2a2a2a;
+  }
+}
+
+
+footer {
+  position: fixed;
+  bottom: 0;
+  height: 30px;
+  line-height: 30px;
+  width: 100%;
+  background-color: $navbar-inverse-bg;
+  color: $navbar-inverse-link-color;
+  border-top: 1px solid white;
+}
+footer p{
+  margin: 0 60px;
+}
+footer a{
+  color: $navbar-inverse-link-color;
+}
+footer a:hover{
+  color: white;
+  text-decoration: none;
+}
+#footer-phantom{
+  height: 30px;
+}
+
+
+.required:after {
+  content: "*";
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+input.flatpickr[readonly]{
+  background-color: white!important;
+}
+
+.clickme{
+  cursor: pointer;
+}
+
+.mpWrite input{
+  transition: background-color 0.5s ease;
+}
+
+.d-none{
+  display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+   ********************************************************************************************************************************************
+   ********************************************************************************************************************************************
+   *********************************************************** FRISE **************************************************************************
+   ********************************************************************************************************************************************
+   ********************************************************************************************************************************************
+ */
+
+$frise-width: 25px;
+$frise-height: 25px;
+
+#frise td,
+#frise th{
+  border: 1px solid black;
+  vertical-align: middle;
+  text-align: center;
+}
+#frise table tr:first-child td{
+  border-top: none!important;
+}
+#frise table tr:last-child td{
+  border-bottom: none!important;
+}
+#frise table tr td:first-child{
+  border-left: none!important;
+}
+#frise table tr td:last-child{
+  border-right: none!important;
+}
+
+#frise-headers table{
+  border-top: 2px solid black!important;
+  border-right: 1px solid black!important;
+  border-left: 1px solid black!important;
+}
+.frise-data table{
+  border-right: 1px solid black!important;
+  border-left: 1px solid black!important;
+}
+#frise tr:last-child .frise-data table{
+  border-bottom: 1px solid black!important;
+}
+
+#frise-headers{
+  vertical-align: bottom!important;
+}
+#frise-headers td,
+#frise .frise-data td{
+  width: $frise-width;
+  min-width: $frise-width;
+  max-width: $frise-width;
+  height: $frise-height;
+  min-height: $frise-height;
+  max-height: $frise-height;
+  vertical-align: middle;
+}
+#frise-headers td{
+  text-align: center;
+}
+#frise .frise-data td:first-child{
+
+}
+#frise .frise-data td:last-child{
+
+}
+#frise .frise-data td{
+  border-bottom: none!important;
+  border-top: none!important;
+}
+#frise td.current-week{
+  /*border-left: 2px solid red!important;*/
+  border-right: 2px solid red!important;
+}
+#frise-headers tr:first-child td,
+#frise-headers tr:nth-child(2) td{
+  background-color: #237fa4;
+  color: white;
+}
+#frise .jalon{
+  text-align: left;
+}
+#frise .jalon div{
+  position: relative;
+}
+#frise .jalon span{
+  position: absolute;
+  opacity: 0.75;
+  border-radius: 100%;
+  width: $frise-width;
+  height: $frise-height*2;
+  transform: rotate(180deg);
+  transform-origin: top;
+  cursor: pointer;
+}
+
+#frise td.fixed-wrap div{
+  height: 75px;
+  overflow-y: auto;
+}
+
+
+#frise-legend .jalon div{
+  opacity: 0.75;
+  border-radius: 100%;
+  width: $frise-width;
+
+}
+#frise-legend .jalon span,
+#frise-legend .jalon div{
+  display: inline-block;
+  vertical-align: middle;
+  height: $frise-height*2;
+  line-height: $frise-height*2;
+}
+
+.scroll-x{
+  overflow-x: scroll;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+   ********************************************************************************************************************************************
+   ********************************************************************************************************************************************
+   *********************************************************** MPLIST *************************************************************************
+   ********************************************************************************************************************************************
+   ********************************************************************************************************************************************
+ */
+
+.mplist{
+
+}
+.mplist td,
+.mplist th{
+  border: 1px solid black;
+  vertical-align: middle;
+  text-align: center;
+  padding: 0 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+   ********************************************************************************************************************************************
+   ********************************************************************************************************************************************
+   *********************************************************** MPCHECKBOX *************************************************************************
+   ********************************************************************************************************************************************
+   ********************************************************************************************************************************************
+ */
+
+
+.mpcheckbox{
+  cursor: pointer;
+}
+.mpcheckbox input {
+  opacity: 0;
+}
+.mpcheckbox .checkmark {
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  background-color: $c_grey;
+}
+.mpcheckbox:hover input ~ .checkmark {
+  background-color: lighten($c_grey,10);
+}
+.mpcheckbox input:checked ~ .checkmark {
+  background-color: $c_blue;
+}
+.mpcheckbox:hover input:checked ~ .checkmark {
+  background-color: lighten($c_blue,10);
+}
+
+.mpcheckbox .checkmark:after {
+  content: "";
+  display: none;
+}
+.mpcheckbox input:checked ~ .checkmark:after {
+  display: block;
+}
+.mpcheckbox .checkmark:after {
+  margin-left: 7px;
+  margin-top: 4px;
+  width: 5px;
+  height: 10px;
+  border: solid $c_white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.mpcheckbox .lab{
+  display: block;
+  float: right;
+  margin-left: 5px;
+}

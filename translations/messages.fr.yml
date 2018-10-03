@@ -1,0 +1,123 @@
+app:
+    title: Planning Consultations
+    version: 0.1
+
+button:
+    add: Ajouter
+    delete: Supprimer
+    download: Télécharger
+    edit: Modifier
+    new: Nouveau
+    refresh: Rafraîchir
+
+entity:
+    Project:
+        edit: Modification d'un projet
+        frise: Frise
+        is_archived: Archivé
+        label: Chantier
+        list: Liste des projets
+        name: Nom du projet
+        new: Ajouter un projet
+    Task:
+        budget: Budget
+        buyers: Acheteurs
+        comment: Commentaire
+        comment2: Ecart négatif sur consultation
+        date_dpgf: DPGF
+        date_end: Fin désignation
+        date_expected_end: Fin prev
+        date_recallage: Recallage
+        date_rla: RLA
+        date_start: Début consultation
+        date_strat: Strat
+        edit: Modification d'un lot
+        is_closed: Clôturé
+        is_default: De base
+        is_prio: Prioritaire
+        label: Lot
+        list: Liste des lots
+        name: Nom du lot
+        new: Ajouter un lot
+        users: Acheteurs
+        users_selection: Assignations automatique
+    User:
+        creeated_at: Créé le
+        edit: Modification d'un acheteur
+        first_name: Prénom
+        is_active: Actif
+        is_buyer: Acheteur
+        is_locked: Bloqué
+        label: Utilisateur
+        last_name: Nom
+        list: Liste des utilisateurs
+        nb_failed_connexion: Nombre de tentative échouée
+        new: Ajouter un utilisateur
+        password: Mot de passe
+        roles: Roles
+        username: Email
+
+form:
+    add: Ajouter
+    archive: Archiver
+    back: Retour
+    cancel: Annuler
+    delete: Supprimer
+    disable: Désactiver
+    edit: Modifier
+    empty: ""
+    enable: Activer
+    flash:
+        add_success: Succès de l'ajout
+        add_failure: Echec de l'ajout
+        edit_success: Succès de la modification
+        edit_failure: Echec de la modification
+    no: Non
+    required: Ce champs est obligatoire
+    reset: Réinitialiser
+    submit: Valider
+    unauthorized: Action non autorisée
+    unlock: Débloquer
+    yes: Oui
+
+graph:
+    legend: Légende
+
+list:
+    action: Action
+    download: Télécharger
+    filters: Filtres
+    list: Liste
+    none: Aucune donnée
+    page: Page
+    sorts: Tris
+
+menu:
+    about: A propos
+    language:
+        label: Langues
+        en: Anglais
+        fr: Français
+    new_project: Nouveau chantier
+    welcome: Accueil
+
+login:
+    change_pwd: Modifier le mot de passe
+    change_pwd_err:
+        bad_confirm: Les deux mots de passe saisis ne correspondent pas
+        bad_format: Le mot de passe doit faire au moins 8 caractères
+        bad_auth: Mauvaise authentification
+    confirm_password: Confirmer mot de passe
+    current_password: Mot de passe actuel
+    log_in: Connexion
+    log_out: Déconnexion
+    new_password: Nouveau mot de passe
+    remember_me: Se souvenir
+    see_profil: Voir profil
+    title: Connexion
+    username: Login
+
+show:
+    back: Précédent
+    info_gen: Informations générales :
+    next: Suivant

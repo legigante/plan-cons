@@ -1,0 +1,41 @@
+{% extends 'layouts/site.html.twig' %}
+
+{% block title %}{{ 'app.title'|trans }}{% endblock %}
+
+{% block content %}
+
+    <div class="row">
+
+        <h4>{{ 'entity.Task.list'|trans }}</h4>
+        <div class="panel panel-default">
+            <table class="mplist">
+                <tr>
+                    <th>{{ 'entity.Task.name'|trans }}</th>
+                    <th>{{ 'entity.Task.users'|trans }}</th>
+                    <th>{{ 'entity.Task.is_default'|trans }}</th>
+                    <th>{{ 'list.action'|trans }}</th>
+                </tr>
+                {% for task in tasks %}
+                    <tr>
+                        <td>{{ task.name }}</td>
+                        <td>
+                            {% for user in task.users %}
+                                <i class="fa fa-user"></i> {{ user.firstName }} {{ user.lastName }}
+                            {% endfor %}
+                        </td>
+                        <td>{{ task.isDefault ? '<i class="fa fa-check"></i>' : '' }}</td>
+                        <td><a class="anone" href="{{ path('tasklist_edit', {'id': task.id}) }}"><i class="fa fa-edit clickme" title="{{ 'form.edit'|trans }}"></i></a> <i class="fa fa-trash clickme" title="{{ 'form.delete'|trans }}"></i></td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+        <h4>{{ 'entity.Task.new'|trans }}</h4>
+        <div class="panel panel-default">
+            <div class="row">
+                <a href="{{ path('tasklist_new') }}" class="btn btn-primary" role="button" title="{{ 'entity.Task.new'|trans }}">{{ 'entity.Task.new'|trans }}</a>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

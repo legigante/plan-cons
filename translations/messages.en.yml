@@ -1,0 +1,65 @@
+app:
+    title: Planning Consultations
+    version: 0.1
+
+entity:
+    User:
+        active: Active
+        creeated_at: Created at
+        first_name: First name
+        label: User
+        last_name: Last name
+        list: User list
+        nb_failed_connexion: Number of failed connexion
+        password: Password
+        roles: Roles
+        username: Email
+
+form:
+    back: Back
+    cancel: Cancel
+    edit: Edit
+    empty: ""
+    no: No
+    required: This field is required
+    reset: Reset
+    submit: Submit
+    unauthorized: Unauthorized action
+    yes: Yes
+
+list:
+    download: Download
+    filter: Filter
+    list: List
+    none: None
+    page: Page
+    sort: Sort
+
+menu:
+    about: About
+    language:
+        label: Languages
+        en: English
+        fr: French
+    welcome: Welcome
+
+login:
+    change_pwd: Change password
+    change_pwd_err:
+        bad_confirm: Both passwords don't match
+        bad_format: Password need to have at least 8 types
+        bad_auth: Bad authentication
+    confirm_password: Password confirmation
+    current_password: Current password
+    log_in: Login
+    log_out: Logout
+    new_password: New password
+    remember_me: Remember me
+    see_profil: See profile
+    title: Connexion
+    username: Login
+
+show:
+    back: Back
+    info_gen: Main info :
+    next: Next

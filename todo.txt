@@ -1,0 +1,51 @@
+orga
+  name
+  image
+  fk_admin1
+  fk_admin2
+
+user
+  fk_orga
+  name
+  email
+  mdp
+  rights
+
+projet
+  fk_orga
+  name
+  color
+  image
+  description
+
+lot
+  fk_projet
+  name
+  color
+  description
+
+lot_user
+  fk_lot
+  fk_user
+
+jalons
+  fk_lot
+  name
+  value
+  color
+
+propriété
+  fk_lot
+  name
+  value
+
+gantt_rule
+  type (1=jalon;2=range)
+  fk_jalonStart
+  fk_jalonEnd
+  condition
+  style
+
+
+
+  

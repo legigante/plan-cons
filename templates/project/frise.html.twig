@@ -1,0 +1,107 @@
+{% extends 'layouts/site.html.twig' %}
+
+{% block title %}{{ 'app.title'|trans }}{% endblock %}
+
+{% block content %}
+
+    <div class="row">
+
+        <h4>{{ 'graph.legend'|trans }}</h4>
+        <div class="panel panel-default" id="frise-legend">
+            <div class="row">
+                {% for jalon, color in jsonheaders.colors %}
+                    <div class="col-sm-4 jalon text-center"><span>{{ ('entity.Task.'~jalon)|trans }} : </span><div style="background-color: {{ color }}"></div></div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <h4>{{ 'list.filters'|trans }}</h4>
+        <div class="panel panel-default" id="frise-legend">
+            <div class="row">
+
+            </div>
+        </div>
+
+        <h4>{{ 'entity.Project.frise'|trans }}</h4>
+        <div class="panel panel-default scroll-x">
+            {% if tasks|length == 0 %}
+                {{ 'list.none'|trans }}
+            {%  else %}
+
+                <div id="frise-loading" class="loading"><span>Chargement...</span><br /><img src="img/loading.gif" /></div>
+
+                <table id="frise" class="hidden">
+                    <col />
+                    <col />
+                    <col />
+                    <col />
+
+                    <col />
+
+                    <col style="min-width: 250px; max-width: 250px;" />
+                    <col />
+                    <col style="min-width: 250px; max-width: 250px;" />
+                    <tr>
+                        <th>{{ 'entity.Project.label'|trans }}</th>
+                        <th>{{ 'entity.Task.buyers'|trans }}</th>
+                        <th>{{ 'entity.Task.label'|trans }}</th>
+                        <th>{{ 'entity.Task.budget'|trans }}</th>
+
+                        <th id="frise-headers">{{ jsonheaders|json_encode() }}</th>
+
+                        <th>{{ 'entity.Task.comment'|trans }}</th>
+                        <th>{{ 'entity.Task.is_prio'|trans }}</th>
+                        <th>{{ 'entity.Task.comment2'|trans }}</th>
+                    </tr>
+                    {% for task in tasks %}
+                        {% set json = {
+                            'id': task.id,
+                            'date_rla': task.dateRla is null ? null : task.dateRla|date('Y-m-d'),
+                            'date_start': task.dateStart is null ? null : task.dateStart|date('Y-m-d'),
+                            'date_dgpf': task.dateDpgf is null ? null : task.dateDpgf|date('Y-m-d'),
+                            'date_start': task.dateStart is null ? null : task.dateStart|date('Y-m-d'),
+                            'date_expected_end': task.dateExpectedEnd is null ? null : task.dateExpectedEnd|date('Y-m-d'),
+                            'date_recallage': task.dateRecallage is null ? null : task.dateRecallage|date('Y-m-d'),
+                            'date_end': task.dateEnd is null ? null : task.dateEnd|date('Y-m-d'),
+                            'is_closed': task.isClosed
+                        } %}
+                        <tr>
+                            <td><span>{{ task.project.name }}</span></td>
+                            <td class="fixed-wrap"><div>
+                                    {# pour centrer à peu près #}
+                                    {{ task.users|length < 3 ? '<br />' : '' }}
+                                    {% for user in task.users %}
+                                        {{ user.username }}<br />
+                                    {% endfor %}
+                                </div></td>
+                            <td>{{ task.tasklist.name }}</td>
+                            <td>{{ task.budget }}</td>
+
+                            <td class="frise-data">{{ json|json_encode() }}</td>
+
+                            <td class="fixed-wrap"><div>{{ task.comment }}</div></td>
+                            <td>{{ task.isPrio ? '<i style="font-size: 180%;" class="fa fa-exclamation-triangle"></i>' : '' }}</td>
+                            <td class="fixed-wrap"><div>{{ task.comment2 }}</div></td>
+                        </tr>
+                    {% endfor %}
+                </table>
+
+
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="mpblock row">
+        <h4>Todo : </h4>
+        <div class="mpcontent">
+            <ul>
+                <li>filtres/tris <span class="label label-warning">todo</span></li>
+                <li>modification <span class="label label-warning">todo</span></li>
+                <li>recherche <span class="label label-warning">todo</span></li>
+                <li>pagination ? <span class="label label-warning">todo</span></li>
+            </ul>
+        </div>
+    </div>
+
+
+{% endblock %}

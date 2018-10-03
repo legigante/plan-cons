@@ -1,0 +1,53 @@
+{% extends 'layouts/site.html.twig' %}
+
+{% block title %}{{ 'app.title'|trans }}{% endblock %}
+
+{% block content %}
+
+    <div class="row">
+
+        <h4>{{ 'entity.User.list'|trans }}</h4>
+        <div class="panel panel-default">
+            <table class="mplist">
+                <tr>
+                    <th>{{ 'entity.User.username'|trans }}</th>
+                    <th>{{ 'entity.User.first_name'|trans }}</th>
+                    <th>{{ 'entity.User.last_name'|trans }}</th>
+                    <th>{{ 'entity.User.is_buyer'|trans }}</th>
+                    <th>{{ 'entity.User.is_active'|trans }}</th>
+                    <th>{{ 'entity.User.is_locked'|trans }}</th>
+                    <th>{{ 'list.action'|trans }}</th>
+                </tr>
+                {% for user in users %}
+                    <tr>
+                        <td>{{ user.username }}</td>
+                        <td>{{ user.firstName }}</td>
+                        <td>{{ user.lastName }}</td>
+                        <td>{{ user.isBuyer ? '<i class="fa fa-check"></i>' : '' }}</td>
+                        <td>{{ user.isActive ? '<i class="fa fa-check"></i>' : '' }}</td>
+                        <td>{{ not user.isAccountNonLocked }}</td>
+                        <td>
+                            <a class="anone" href="{{ path('user_edit', {'id': user.id}) }}"><i class="fa fa-edit clickme" title="{{ 'form.edit'|trans }}"></i></a>
+                            {% if user.isActive %}
+                                <i class="fa fa-ban clickme" title="{{ 'form.disable'|trans }}"></i>
+                            {% else %}
+                                <i class="fa fa-check-circle clickme" title="{{ 'form.enable'|trans }}"></i>
+                            {% endif %}
+                            {% if not user.isAccountNonLocked %}
+                                <i class="fa fa-unlock clickme" title="{{ 'form.unlock'|trans }}"></i>
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+        <h4>{{ 'entity.User.new'|trans }}</h4>
+        <div class="panel panel-default">
+            <div class="row">
+                <a href="{{ path('user_new') }}" class="btn btn-primary" role="button" title="{{ 'entity.User.new'|trans }}">{{ 'entity.User.new'|trans }}</a>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

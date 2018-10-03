@@ -1,0 +1,33 @@
+{% extends 'layouts/site.html.twig' %}
+
+{% block title %}{{ 'app.title'|trans }}{% endblock %}
+
+{% block content %}
+
+    <div class="row">
+
+        <h4>{{ 'entity.Project.list'|trans }}</h4>
+        <div class="panel panel-default">
+            <table class="mplist">
+                <tr>
+                    <th>{{ 'entity.Project.name'|trans }}</th>
+                    <th>{{ 'list.action'|trans }}</th>
+                </tr>
+                {% for project in projects %}
+                    <tr>
+                        <td>{{ project.name }}</td>
+                        <td><i class="fa fa-edit clickme" title="{{ 'form.edit'|trans }}"></i> <i class="fa fa-archive clickme" title="{{ 'form.archive'|trans }}"></i></td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+        <h4>{{ 'entity.Project.new'|trans }}</h4>
+        <div class="panel panel-default">
+            <div class="row">
+                <a href="{{ path('project_new') }}" class="btn btn-primary" role="button" title="{{ 'entity.Project.new'|trans }}">{{ 'entity.Project.new'|trans }}</a>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

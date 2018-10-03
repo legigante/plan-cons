@@ -1,0 +1,36 @@
+{% block date_widget %}
+    <div class="form-group">
+        <div class="hidden">
+            <input type="text" id="{{ id }}_day" name="{{ full_name }}[day]" value="{{ data|date('j') }}" />
+            <input type="text" id="{{ id }}_month" name="{{ full_name }}[month]" value="{{ data|date('n') }}" />
+            <input type="text" id="{{ id }}_year" name="{{ full_name }}[year]" value="{{ data|date('Y') }}" />
+        </div>
+        <input value="{{ data|date('Y-m-d') }}" name="{{ id }}" class="flatpickr form-control" type="text" placeholder="2011-12-24" {{ required ? 'required="required"' : '' }} data-input />
+    </div>
+{% endblock %}
+
+{% block checkbox_widget %}
+    <div class="form-group">
+        <label class="mpcheckbox {{ required ? 'required="required"' : '' }}">
+            <input type="checkbox" id="{{ id }}" name="{{ full_name }}" value="{{ value }}" {{ data == true ? 'checked="checked"' : '' }} >
+            <span class="checkmark"></span>
+            <span class="lab">{{ translation_domain is same as(false) ? label : label|trans }}</span>
+        </label>
+    </div>
+{% endblock %}
+
+{% block fields_widget %}
+    <div class="form-group mpFields">
+        <select id="{{ id }}" name="{{ full_name }}" multiple="multiple" class="hidden" {{ required ? 'required="required"' : '' }}>
+            {% for choice in choices %}
+                <option selected="selected" value="{{ choice.value }}">{{ choice.label }}</option>
+            {% endfor %}
+        </select>
+        <div class="mpFieldsUI form-control">
+            {% for choice in choices %}
+                <span class="badge badge-success">{{ choice.label }}</span>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+

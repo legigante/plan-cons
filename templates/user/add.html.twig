@@ -1,0 +1,23 @@
+{% extends 'layouts/site.html.twig' %}
+
+{% block title %}{{ 'app.title'|trans }}{% endblock %}
+
+{% block content %}
+
+    {% for flashMessage in app.session.flashbag.get('danger') %}
+        <div class="alert alert-danger">{{ flashMessage|trans }}</div>
+    {% endfor %}
+
+    <div class="row">
+
+        <h4>{{ 'entity.User.new'|trans }}</h4>
+        <div class="panel panel-default">
+
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            {{ form_end(form) }}
+
+        </div>
+    </div>
+
+{% endblock %}
